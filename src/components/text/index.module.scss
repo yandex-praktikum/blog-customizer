@@ -1,0 +1,97 @@
+@mixin typography($size: 18, $weight: 400, $family: "Open Sans",) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: normal;
+    letter-spacing: 0em;
+    color: #000;
+}
+
+.text {
+    @include typography(18, 400, "Open Sans");
+}
+
+.open-sans {
+    font-family: "Open Sans";
+}
+
+.ubuntu {
+    font-family: Ubuntu;
+}
+  
+.cormorant-garamond {
+    font-family: Cormorant Garamond;
+}
+  
+.days-one {
+    font-family: Days One;
+}
+  
+.merriweather {
+    font-family: Merriweather;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.size12 {
+    font-size: 12px;
+}
+
+.size18 {
+    font-size: 18px;
+}
+
+.size22 {
+    font-size: 22px;
+}
+
+.size25 {
+    font-size: 25px;
+}
+
+.size31 {
+    font-size: 31px;
+}
+
+.size45 {
+    font-size: 45px;
+}
+
+.weight400 {
+    font-weight: 400;
+}
+
+.weight800 {
+    font-weight: 800;
+}
+
+.normal {
+    font-style: normal;
+}
+
+.italic {
+    font-style: italic;
+}
+
+// для динамических типографий, используем константы, которые будут меняться
+.dynamic {
+    font-family: var(--font-family, "Open Sans");
+    font-size: var(--font-size, 18px);
+    color: var(--font-color, #000);
+}
+
+// для заголовка и подзаголовка рамер шрифта одинаковый, меняется только цвет и семейство шрифтов
+.dynamicLite {
+    font-family: var(--font-family, "Open Sans");
+    color: var(--font-color, #000);
+}

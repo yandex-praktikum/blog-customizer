@@ -1,0 +1,32 @@
+.container {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  width: 616px;
+  transform: translate(-616px);
+  transition: transform 0.5s ease;
+  overflow: scroll;
+}
+
+.container_open {
+  transform: translate(0);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 616px;
+  height: auto;
+  min-height: 100%;
+  padding: 50px 31px;
+  flex-shrink: 0;
+  border-right: 1px solid #000;
+  background-color: #fff;
+}
+
+.bottomContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}

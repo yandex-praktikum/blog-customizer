@@ -1,0 +1,18 @@
+.article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 72px 0 144px;
+  max-width: var(--container-width, auto);
+  margin: 0 auto;
+}
+
+.titleDescription {
+  max-width: 550px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
