@@ -1,0 +1,29 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+      
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 20
+    - name: Check if the repository is private
+      if: ${{github.event.repository.private}}
+      run: exit 1
+    - name: Get testing lib
+      run: set -eu && git clone https://github.com/Yandex-Practicum/tests-blog-customizer.git /tmp/tests-blog-customizer
+    - name: Run tests
+      run: bash /tmp/tests-blog-customizer/run.sh
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: report
+        path: /tmp/tests-blog-customizer/tmp/artifacts
+        retention-days: 30
