@@ -7,14 +7,10 @@ export const ArticleParamsForm = () => {
 	return (
 		<>
 			<ArrowButton />
-			<aside
-				className={styles.container}>
+			<aside className={styles.container}>
 				<form className={styles.form}>
 					<div className={styles.bottomContainer}>
-						<Button
-							title='Сбросить'
-							type='reset'
-						/>
+						<Button title='Сбросить' type='reset' />
 						<Button title='Применить' type='submit' />
 					</div>
 				</form>
