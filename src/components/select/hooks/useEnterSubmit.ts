@@ -23,5 +23,5 @@ export const useEnterSubmit = ({
 		return () => {
 			placeholderEl.removeEventListener('keydown', handleEnterKeyDown);
 		};
-	}, [onChange, placeholderRef]);
+	}, []);
 };

@@ -2,6 +2,12 @@
   position: relative;
 }
 
+.container {
+	display: flex;
+	flex-direction: column;
+	row-gap: 4px;
+}
+
 .arrow {
   position: absolute;
   right: 6px;

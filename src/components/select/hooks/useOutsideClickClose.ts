@@ -27,5 +27,5 @@ export const useOutsideClickClose = ({
 		return () => {
 			window.removeEventListener('click', handleClick);
 		};
-	}, [onClose, onChange, isOpen, rootRef]);
+	}, [onClose, onChange, isOpen]);
 };

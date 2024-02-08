@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import { StrictMode, CSSProperties } from 'react';
-import { clsx } from 'clsx';
+import clsx from 'clsx';
 
 import { Article } from './components/article/Article';
 import { ArticleParamsForm } from './components/article-params-form/ArticleParamsForm';
