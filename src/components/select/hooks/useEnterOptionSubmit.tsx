@@ -25,5 +25,5 @@ export const useEnterOptionSubmit = ({
 		return () => {
 			option.removeEventListener('keydown', handleEnterKeyDown);
 		};
-	}, [value, onClick]);
+	}, [value, onClick, optionRef]);
 };

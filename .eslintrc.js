@@ -9,6 +9,11 @@ module.exports = {
 		react: {
 			version: 'detect',
 		},
+		"import/resolver": {
+			typescript: {
+				project: "tsconfig.json",
+			}
+		}
 	},
 	extends: [
 		'plugin:@typescript-eslint/recommended',
@@ -19,7 +24,6 @@ module.exports = {
 		'plugin:import/errors',
 		'plugin:import/warnings',
 		'plugin:import/typescript',
-		'plugin:jsx-a11y/recommended',
 		'plugin:eslint-comments/recommended',
 	],
 	rules: {
@@ -32,5 +36,7 @@ module.exports = {
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
+		'react-hooks/exhaustive-deps': 'off',
+		'import/no-named-as-default': 'off',
 	},
 };

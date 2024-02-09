@@ -6,6 +6,7 @@
   padding: 72px 0 144px;
   max-width: var(--container-width, auto);
   margin: 0 auto;
+  row-gap: 24px;
 }
 
 .titleDescription {
@@ -15,4 +16,5 @@
 .image {
   width: 100%;
   height: auto;
+  margin-top: 26px;
 }

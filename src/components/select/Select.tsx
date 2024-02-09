@@ -3,7 +3,6 @@ import type { MouseEventHandler } from 'react';
 import clsx from 'clsx';
 import { OptionType } from 'src/constants/articleProps';
 import { Text } from 'components/text';
-import { Spacing } from 'components/spacing';
 import arrowDown from 'src/images/arrow-down.svg';
 import { Option } from './Option';
 import { isFontFamilyClass } from './helpers/isFontFamilyClass';
@@ -48,13 +47,12 @@ export const Select = (props: SelectProps) => {
 	};
 
 	return (
-		<div>
+		<div className={styles.container}>
 			{title && (
 				<>
 					<Text size={12} weight={800} uppercase>
 						{title}
 					</Text>
-					<Spacing size={4} />
 				</>
 			)}
 			<div
