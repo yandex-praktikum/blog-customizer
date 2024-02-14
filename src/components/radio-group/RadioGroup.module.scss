@@ -1,49 +1,50 @@
 .group {
-  display: inline-flex;
-  box-sizing: border-box;
-  border: 1px solid #000;
-  max-width: fit-content;
+	display: inline-flex;
+	box-sizing: border-box;
+	max-width: fit-content;
+	border: 1px solid #000000;
 }
 
 .item {
-  display: block;
-  position: relative;
+	position: relative;
+	display: block;
 }
 
 .input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
 }
 
 .label {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 124px;
-  height: 35px;
-  cursor: pointer;
-  text-align: center;
-  flex-shrink: 0;
-  border-right: 1px solid #000;
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	width: 124px;
+	height: 35px;
+	text-align: center;
+	border-right: 1px solid #000000;
+	cursor: pointer;
 }
 
 /* Убираем бордер у последнего в radiogroup, чтобы не было двойного бордера */
+
 .item:last-child .label {
-  border: none;
+	border: none;
 }
 
 .label:hover,
-.item[data-checked="true"] .label:hover {
-  background: var(--gold, #ffc802);
+.item[data-checked='true'] .label:hover {
+	background: var(--gold, #ffc802);
 }
 
-.item[data-checked="true"] .label {
-  background: var(--gold, #ffc802);
+.item[data-checked='true'] .label {
+	background: var(--gold, #ffc802);
 }
 
 .container {
