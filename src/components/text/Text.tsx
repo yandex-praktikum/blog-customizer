@@ -12,7 +12,7 @@ type TextProps = {
 	/** Булевая пропса, должен ли текст меняться в зависимости от конфига */
 	dynamic?: boolean;
 	/** Размер шрифта */
-	size?: 12 | 18 | 22 | 25 | 31 | 45;
+	size?: 12 | 18 | 22 | 25 | 31 | 38 | 45;
 	/** Вес шрифта */
 	weight?: 400 | 800;
 	/** Стиль шрифта */
@@ -50,5 +50,9 @@ export const Text = ({
 		styles[`${family}`],
 		{ [styles.dynamicLite]: dynamicLite }
 	);
-	return <Tag className={className}>{children}</Tag>;
+	return (
+		<Tag className={className}>
+			{children}
+		</Tag>
+	);
 };

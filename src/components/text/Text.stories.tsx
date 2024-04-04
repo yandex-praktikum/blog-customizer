@@ -19,7 +19,7 @@ export const SelectStory: Story = {
 			control: { type: 'boolean' },
 		},
 		size: {
-			options: [12, 18, 22, 25, 31, 45],
+			options: [12, 18, 22, 25, 31, 38, 45],
 			control: { type: 'select' },
 		},
 		weight: {

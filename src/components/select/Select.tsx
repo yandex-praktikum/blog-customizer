@@ -60,14 +60,12 @@ export const Select = (props: SelectProps) => {
 				ref={rootRef}
 				data-is-active={isOpen}
 				data-testid='selectWrapper'>
-				<img
-					src={arrowDown}
-					alt='иконка стрелочки'
-					className={clsx(styles.arrow, { [styles.arrow_open]: isOpen })}
-				/>
+				<img src={arrowDown} alt='иконка стрелочки' className={styles.arrow} />
 				<div
 					className={clsx(
 						styles.placeholder,
+						// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+						// @ts-ignore
 						styles[selected?.optionClassName || '']
 					)}
 					data-status={status}
