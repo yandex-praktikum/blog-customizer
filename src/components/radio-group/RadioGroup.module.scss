@@ -39,8 +39,8 @@
 }
 
 .label:hover,
-.item[data-checked='true'] .label:hover {
-	background: var(--gold, #ffc802);
+.item[data-checked='false'] .label:hover {
+	background: var(--khaki, #ffedab);
 }
 
 .item[data-checked='true'] .label {

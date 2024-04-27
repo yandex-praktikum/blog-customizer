@@ -19,7 +19,9 @@ export const Option = (props: OptionProps) => {
 
 	const optionRef = useRef<HTMLDivElement>(null);
 
-	const handleChange = () => onChange?.(option);
+	const handleChange = () => {
+		onChange?.(option);
+	};
 
 	useEnterSubmit({ onChange, option });
 

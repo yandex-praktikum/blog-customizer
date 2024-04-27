@@ -83,6 +83,42 @@
 	font-style: italic;
 }
 
+.font-black {
+	color: #000;
+}
+
+.font-white {
+	color: #fff;
+}
+
+.font-gray {
+	color: #c4c4c4;
+}
+
+.font-pink {
+	color: #feafe8;
+}
+
+.font-fuchsia {
+	color: #fd24af;
+}
+
+.font-yellow {
+	color: #ffc802;
+}
+
+.font-green {
+	color: #80d994;
+}
+
+.font-blue {
+	color: #6fc1fd;
+}
+
+.font-purple {
+	color: #5f0dee;
+}
+
 // для динамических типографий, используем константы, которые будут меняться
 
 .dynamic {
