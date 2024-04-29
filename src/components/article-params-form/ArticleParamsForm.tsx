@@ -20,41 +20,41 @@ import { Text } from '../text';
 import { useOutsideClickClose } from '../select/hooks/useOutsideClickClose';
 
 type TArticleParamsFormProps = {
-	state: ArticleStateType;
-	setState: (params: React.SetStateAction<ArticleStateType>) => void;
+	articleState: ArticleStateType;
+	setArticleState: (params: React.SetStateAction<ArticleStateType>) => void;
 };
 
 export const ArticleParamsForm = ({
-	state,
-	setState,
-}: TArticleParamsFormProps) => { 
-	const [isOpen, setIsOpen] = useState<boolean>(false);
+	articleState,
+	setArticleState,
+}: TArticleParamsFormProps) => {
+	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 	const formElementRef = useRef<HTMLDivElement | null>(null);
 
 	const [selectedFontFamily, setSelectedFontFamily] = useState<OptionType>(
-		state.fontFamilyOption
+		articleState.fontFamilyOption
 	);
 	const [selectedFontSize, setSelectedFontSize] = useState<OptionType>(
-		state.fontSizeOption
+		articleState.fontSizeOption
 	);
 	const [selectedFontColor, setSelectedFontColor] = useState<OptionType>(
-		state.fontColor
+		articleState.fontColor
 	);
 	const [selectedBackgroundColor, setSelectedBackgroundColor] =
-		useState<OptionType>(state.backgroundColor);
+		useState<OptionType>(articleState.backgroundColor);
 	const [selectedContentWidth, setSelectedContentWidth] = useState<OptionType>(
-		state.contentWidth
+		articleState.contentWidth
 	);
 
 	const onClick = (evt: SyntheticEvent) => {
 		evt.stopPropagation();
-		setIsOpen((prevState) => !prevState);
+		setIsMenuOpen((prevState) => !prevState);
 	};
 
 	const handleFormSubmit = (evt: FormEvent<HTMLFormElement>) => {
 		evt.preventDefault();
-		setState({
-			...state,
+		setArticleState({
+			...articleState,
 			fontFamilyOption: selectedFontFamily,
 			fontSizeOption: selectedFontSize,
 			fontColor: selectedFontColor,
@@ -64,7 +64,7 @@ export const ArticleParamsForm = ({
 	};
 
 	const handleClearForm = () => {
-		setState(defaultArticleState);
+		setArticleState(defaultArticleState);
 		setSelectedFontFamily(defaultArticleState.fontFamilyOption);
 		setSelectedFontSize(defaultArticleState.fontSizeOption);
 		setSelectedFontColor(defaultArticleState.fontColor);
@@ -73,16 +73,18 @@ export const ArticleParamsForm = ({
 	};
 
 	useOutsideClickClose({
-		isOpen: isOpen,
+		isOpen: isMenuOpen,
 		rootRef: formElementRef,
-		onChange: setIsOpen,
+		onChange: setIsMenuOpen,
 	});
 
 	return (
 		<>
-			<ArrowButton onClick={onClick} isOpen={isOpen} />
+			<ArrowButton onClick={onClick} isOpen={isMenuOpen} />
 			<aside
-				className={clsx(styles.container, { [styles.container_open]: isOpen })}
+				className={clsx(styles.container, {
+					[styles.container_open]: isMenuOpen,
+				})}
 				ref={formElementRef}>
 				<form className={styles.form} onSubmit={handleFormSubmit}>
 					<Text as='h1' size={31} weight={800} uppercase>
