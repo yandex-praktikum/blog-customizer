@@ -82,9 +82,9 @@
 		"react-dom": "^18.2.0"
 	},
 	"lint-staged": {
-		"*.{css,scss}": "yarn stylelint:fix",
-		"*.{js,jsx,ts,tsx}": "yarn lint",
-		"*.{js,jsx,ts,tsx,json,css,scss,md}": "yarn format"
+		"*.{css,scss}": "npm run stylelint:fix",
+		"*.{js,jsx,ts,tsx}": "npm run lint",
+		"*.{js,jsx,ts,tsx,json,css,scss,md}": "npm run format"
 	},
 	"config": {
 		"commitizen": {

@@ -13,6 +13,15 @@
 	transition: transform 0.5s ease;
 }
 
+.container:hover {
+	background-color: var(--gold, #ffc802);
+	cursor: pointer;
+}
+
+.container:active {
+	background-color: #787878;
+}
+
 .container_open {
 	transform: translate(616px);
 }
