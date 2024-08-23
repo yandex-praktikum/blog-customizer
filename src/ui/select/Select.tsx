@@ -25,6 +25,7 @@ export const Select = (props: SelectProps) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const rootRef = useRef<HTMLDivElement>(null);
 	const placeholderRef = useRef<HTMLDivElement>(null);
+	const optionClassName = selected?.optionClassName ?? '';
 
 	useOutsideClickClose({
 		isOpen,
@@ -64,9 +65,7 @@ export const Select = (props: SelectProps) => {
 				<div
 					className={clsx(
 						styles.placeholder,
-						// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-						// @ts-ignore
-						styles[selected?.optionClassName || '']
+						(styles as Record<string, string>)[optionClassName]
 					)}
 					data-status={status}
 					data-selected={!!selected?.value}
