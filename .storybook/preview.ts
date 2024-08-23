@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import { StoryDecorator } from "../src/components/story-decorator/StoryDecorator";
+import { StoryDecorator } from "../src/ui/story-decorator/StoryDecorator";
 
 const preview: Preview = {
   parameters: {
