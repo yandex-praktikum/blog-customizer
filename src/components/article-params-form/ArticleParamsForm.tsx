@@ -1,12 +1,12 @@
-import { ArrowButton } from 'components/arrow-button';
-import { Button } from 'components/button';
+import { ArrowButton } from 'src/ui/arrow-button';
+import { Button } from 'src/ui/button';
 
 import styles from './ArticleParamsForm.module.scss';
 
 export const ArticleParamsForm = () => {
 	return (
 		<>
-			<ArrowButton />
+			<ArrowButton onClick={() => {}} />
 			<aside className={styles.container}>
 				<form className={styles.form}>
 					<div className={styles.bottomContainer}>

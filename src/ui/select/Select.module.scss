@@ -198,10 +198,10 @@
 
 .option-wide::before {
 	@include option-width-before;
-	background-image: url('./../../images/wide.svg');
+	background-image: url('../../images/wide.svg');
 }
 
 .option-narrow::before {
 	@include option-width-before;
-	background-image: url('./../../images/narrow.svg');
+	background-image: url('../../images/narrow.svg');
 }
