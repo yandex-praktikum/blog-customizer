@@ -13,8 +13,24 @@
 	transition: transform 0.5s ease;
 }
 
+.container:hover {
+	background-color: #ffc802;
+}
+
+.container:active {
+	background-color: #787878;
+}
+
 .container_open {
 	transform: translate(616px);
+}
+
+.container_open:hover {
+	background-color: #ffc802;
+}
+
+.container_open:active {
+	background-color: #787878;
 }
 
 .arrow {
@@ -28,3 +44,19 @@
 .arrow_open {
 	transform: rotate(0deg);
 }
+
+// .default {
+//   background-color: #000000;
+// }
+
+// .hover {
+//   background-color: #FFC802;
+// }
+
+// .pressed {
+//   background-color: #787878;
+// }
+
+// .closed {
+//   background-color: #000000;
+// }
