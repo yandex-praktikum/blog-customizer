@@ -16,7 +16,7 @@ interface ArticleParamsFormProps {
 
 export const ArticleParamsForm : React.FC<ArticleParamsFormProps> = ({setArticleState}) => {
 
-	const [open, setOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 	const [fontFamilyOption, setFontFamilyOption] = useState<OptionType>(defaultArticleState.fontFamilyOption);
 	const [fontSizeOption, setFontSizeOption] = useState<OptionType>(defaultArticleState.fontSizeOption);
 	const [fontColor, setFontColor] = useState<OptionType>(defaultArticleState.fontColor);
@@ -29,7 +29,7 @@ export const ArticleParamsForm : React.FC<ArticleParamsFormProps> = ({setArticle
 		const target : HTMLElement = event.target as HTMLElement;
 		const current : HTMLElement = sidebar.current as HTMLElement;
 		if(!current.contains(target) && !target.closest('#openBtn')){
-			setOpen(false)
+			setIsOpen(false)
 		}
 	}
 
@@ -60,8 +60,8 @@ export const ArticleParamsForm : React.FC<ArticleParamsFormProps> = ({setArticle
 
 	return (
 		<>
-			<ArrowButton open={open} opened={() => setOpen(!open)} />
-			<aside ref={sidebar} className={clsx(styles.container, open && styles.container_open)}>
+			<ArrowButton isOpen={isOpen} opened={() => setIsOpen(!isOpen)} />
+			<aside ref={sidebar} className={clsx(styles.container, isOpen && styles.container_open)}>
 				<form className={styles.form} onSubmit={handleSubmit}>
 					<h2 className={styles.title}>Задайте параметры</h2>
 					<Select options={fontFamilyOptions} placeholder={''} selected={fontFamilyOption} onChange={(selected) => setFontFamilyOption(selected)} title={'Шрифт'} />
