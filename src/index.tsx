@@ -20,7 +20,8 @@ const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
 
 const App = () => {
-	const [paramsText, setParamsText] = useState(defaultArticleState);
+	const [paramsText, setParamsText] =
+		useState<typeof defaultArticleState>(defaultArticleState);
 
 	const applyParamsHandler = (newParamsText: typeof defaultArticleState) => {
 		setParamsText(newParamsText);

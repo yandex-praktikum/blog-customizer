@@ -11,9 +11,27 @@
 }
 
 .button:active {
+	color: #ffffff;
 	background: var(--gold, #ffc802);
 }
 
 .button:hover {
 	background: var(--gold, #ffc802);
+}
+
+.button[type='submit'] {
+	background: #ffc802;
+}
+
+.button[type='submit']:hover {
+	background: #ffedab;
+}
+
+.button[type='reset'] {
+	background: #ffffff;
+}
+
+.button[type='reset']:hover {
+	color: #ffffff;
+	background: #000000;
 }

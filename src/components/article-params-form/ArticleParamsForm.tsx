@@ -8,6 +8,7 @@ import { Select } from '../select';
 import { RadioGroup } from '../radio-group';
 import { Separator } from '../separator';
 import Spacing from '../spacing/Spacing';
+import { Text } from '../text';
 
 interface ArticleParamsFormProps {
 	onApplyParams: (paramsText: typeof defaultArticleState) => void;
@@ -28,8 +29,9 @@ export const ArticleParamsForm: React.FC<ArticleParamsFormProps> = ({
 	backgroundColors,
 	contentWidthArr,
 }) => {
-	const [params, setParams] = useState(defaultArticleState);
-	const [isVisible, setIsVisible] = useState(true);
+	const [params, setParams] =
+		useState<typeof defaultArticleState>(defaultArticleState);
+	const [isVisible, setIsVisible] = useState<boolean>(false);
 	const formRef = useRef<HTMLFormElement | null>(null);
 
 	const toggleVisible = () => {
@@ -82,7 +84,9 @@ export const ArticleParamsForm: React.FC<ArticleParamsFormProps> = ({
 					isVisible ? styles.container_open : ''
 				}`}>
 				<form className={styles.form} onSubmit={onSubmitHandler} ref={formRef}>
-					<h2 className={styles.title}>Задайте параметры</h2>
+					<Text size={31} weight={800} uppercase={true}>
+						Задайте параметры
+					</Text>
 					<Spacing size='large' />
 					<Select
 						title='Шрифт'

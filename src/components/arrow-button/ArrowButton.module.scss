@@ -10,6 +10,7 @@
 	height: 100px;
 	background-color: #000000;
 	border-right: 1px;
+	cursor: pointer;
 	transition: transform 0.5s ease;
 }
 
@@ -17,11 +18,11 @@
 	transform: translate(616px);
 }
 
-.container_hover {
+.container:hover {
 	background-color: #ffc802;
 }
 
-.container_pressed {
+.container:active {
 	background-color: #787878;
 }
 
