@@ -24,18 +24,22 @@ export const ArticleParamsForm : React.FC<ArticleParamsFormProps> = ({setArticle
 	const [backgroundColor, setBackgroundColor] = useState<OptionType>(defaultArticleState.backgroundColor);
 	const sidebar = useRef<HTMLDivElement>(null);
 
-
 	function close (event : Event){
 		const target : HTMLElement = event.target as HTMLElement;
 		const current : HTMLElement = sidebar.current as HTMLElement;
 		if(!current.contains(target) && !target.closest('#openBtn')){
 			setIsOpen(false)
+			document.body.removeEventListener('mousedown', close)
 		}
 	}
 
 	useEffect(() => {
-		window.addEventListener('mousedown', close)
-	}, [])
+		if(isOpen){
+			document.body.addEventListener('mousedown', close)
+		}
+	}, [isOpen])
+
+
 
 	const handleSubmit = (event: { preventDefault: () => void}) => {
 		event.preventDefault();
