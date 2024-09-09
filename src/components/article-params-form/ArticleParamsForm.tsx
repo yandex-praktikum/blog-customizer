@@ -92,7 +92,7 @@ export const ArticleParamsForm = ({
 					onSubmit={formSubmitHandler}
 					onReset={formResetHandler}
 					ref={formRef}>
-					<Text as={'h2'} size={31} weight={800}>
+					<Text as={'h2'} size={31} weight={800} uppercase>
 						Задайте параметры
 					</Text>
 					<Select
