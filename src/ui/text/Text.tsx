@@ -50,9 +50,5 @@ export const Text = ({
 		styles[`${family}`],
 		{ [styles.dynamicLite]: dynamicLite }
 	);
-	return (
-		<Tag className={className}>
-			{children}
-		</Tag>
-	);
+	return <Tag className={className}>{children}</Tag>;
 };
