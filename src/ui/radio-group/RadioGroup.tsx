@@ -1,5 +1,5 @@
 import { OptionType } from 'src/constants/articleProps';
-import { Text } from 'src/ui/text';
+import { Text } from '../../ui/text';
 import { Option } from './Option';
 
 import styles from './RadioGroup.module.scss';
@@ -12,19 +12,18 @@ type RadioGroupProps = {
 	title: string;
 };
 
-export const RadioGroup = (props: RadioGroupProps) => {
-	const { name, options, selected, onChange, title } = props;
-
-	const handleChange = (option: OptionType) => onChange?.(option);
+export const RadioGroup = ({ name, options, selected, onChange, title }: RadioGroupProps) => {
+	const handleChange = (option: OptionType) => {
+		console.log(`Выбрана опция: ${option.title}`);
+		onChange?.(option);
+	};
 
 	return (
 		<div className={styles.container}>
 			{title && (
-				<>
-					<Text weight={800} size={12} uppercase>
-						{title}
-					</Text>
-				</>
+				<Text weight={800} size={12} uppercase>
+					{title}
+				</Text>
 			)}
 			<div className={styles.group}>
 				{options.map((option) => (

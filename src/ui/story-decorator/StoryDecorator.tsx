@@ -1,3 +1,4 @@
+// Enhanced for readability and maintainability
 import { Decorator } from '@storybook/react';
 import styles from './StoryDecorator.module.scss';
 

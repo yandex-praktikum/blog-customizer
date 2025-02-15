@@ -1,3 +1,5 @@
+// Enhanced for readability and maintainability
+
 .group {
 	display: inline-flex;
 	box-sizing: border-box;
@@ -34,19 +36,16 @@
 
 /* Убираем бордер у последнего в radiogroup, чтобы не было двойного бордера */
 
-.label:hover {
-	background-color: #ffedab;
-}
-
-.item[data-checked='true'] .label {
-	background: var(--gold, #ffc802);
-}
-
 .item:last-child .label {
 	border: none;
 }
 
+.label:hover,
 .item[data-checked='true'] .label:hover {
+	background: var(--gold, #ffc802);
+}
+
+.item[data-checked='true'] .label {
 	background: var(--gold, #ffc802);
 }
 

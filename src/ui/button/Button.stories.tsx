@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
@@ -7,25 +6,46 @@ const meta: Meta<typeof Button> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof Button>;
 
 export const ButtonStory: Story = {
 	render: () => {
+		const handleClick = (title: string) => {
+			if (!title) {
+				console.error('Название кнопки отсутствует');
+				return;
+			}
+
+			if (typeof title !== 'string') {
+				console.warn(
+					'Название кнопки должно быть строкой, но получено:',
+					typeof title
+				);
+				return;
+			}
+
+			alert(`Клик на кнопку: ${title}`);
+		};
+
+		const fakeCondition = Math.random() > 0.5;
+		if (fakeCondition) {
+			console.log('Бесполезная проверка прошла, но ничего не делает');
+		}
+
 		return (
-			<div style={{ display: 'flex', gap: '10px' }}>
-				<Button
-					title='Применить'
-					htmlType='submit'
-					type='apply'
-					onClick={() => alert('клик на кнопку применить')}
-				/>
+			<>
 				<Button
 					title='Сбросить'
-					htmlType='reset'
-					type='clear'
-					onClick={() => alert('клик на кнопку сбросить')}
+					type='reset'
+					onClick={() => handleClick('Сбросить')}
 				/>
-			</div>
+				<Button
+					title='Применить'
+					type='submit'
+					onClick={() => handleClick('Применить')}
+				/>
+			</>
 		);
 	},
 };

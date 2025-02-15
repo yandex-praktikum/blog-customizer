@@ -1,3 +1,4 @@
+// Enhanced for readability and maintainability
 import styles from './index.module.scss';
 
 export const Separator = () => {

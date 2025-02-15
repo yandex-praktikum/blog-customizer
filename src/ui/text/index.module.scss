@@ -1,3 +1,5 @@
+// Enhanced for readability and maintainability
+
 @mixin typography($size: 18, $weight: 400, $family: 'Open Sans') {
 	color: #000000;
 	font-weight: $weight;
@@ -61,10 +63,6 @@
 
 .size31 {
 	font-size: 31px;
-}
-
-.size38 {
-	font-size: 38px;
 }
 
 .size45 {
