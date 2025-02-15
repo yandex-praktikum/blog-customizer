@@ -1,3 +1,10 @@
+export type OptionType = {
+	title: string;
+	value: string;
+	className: string;
+	optionClassName?: string;
+};
+
 export const fontFamilyClasses = [
 	'open-sans',
 	'ubuntu',
@@ -7,13 +14,6 @@ export const fontFamilyClasses = [
 ] as const;
 
 export type FontFamiliesClasses = (typeof fontFamilyClasses)[number];
-
-export type OptionType = {
-	title: string;
-	value: string;
-	className: string;
-	optionClassName?: string;
-};
 
 export const fontFamilyOptions: OptionType[] & {
 	optionClassName?: FontFamiliesClasses;
@@ -31,6 +31,12 @@ export const fontFamilyOptions: OptionType[] & {
 		value: 'Merriweather',
 		className: fontFamilyClasses[4],
 	},
+];
+
+export const fontSizeOptions: OptionType[] = [
+	{ title: '18px', value: '18px', className: 'font-size-18' },
+	{ title: '25px', value: '25px', className: 'font-size-25' },
+	{ title: '38px', value: '38px', className: 'font-size-38' },
 ];
 
 export const fontColors: OptionType[] = [
@@ -160,12 +166,6 @@ export const contentWidthArr: OptionType[] = [
 		className: 'width-narrow',
 		optionClassName: 'option-narrow',
 	},
-];
-
-export const fontSizeOptions: OptionType[] = [
-	{ title: '18px', value: '18px', className: 'font-size-18' },
-	{ title: '25px', value: '25px', className: 'font-size-25' },
-	{ title: '38px', value: '38px', className: 'font-size-38' },
 ];
 
 export const defaultArticleState = {

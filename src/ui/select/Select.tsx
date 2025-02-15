@@ -1,8 +1,8 @@
-import { useState, useRef } from 'react';
-import type { MouseEventHandler } from 'react';
+import { useState, useRef, MouseEventHandler } from 'react';
 import clsx from 'clsx';
+
 import { OptionType } from 'src/constants/articleProps';
-import { Text } from 'src/ui/text';
+import { Text } from '../../ui/text';
 import arrowDown from 'src/images/arrow-down.svg';
 import { Option } from './Option';
 import { isFontFamilyClass } from './helpers/isFontFamilyClass';
@@ -20,15 +20,13 @@ type SelectProps = {
 	title?: string;
 };
 
-export const Select = (props: SelectProps) => {
-	const { options, placeholder, selected, onChange, onClose, title } = props;
-	const [isOpen, setIsOpen] = useState<boolean>(false);
+export const Select = ({ options, placeholder, selected, onChange, onClose, title }: SelectProps) => {
+	const [isMenuOpen, setIsOpen] = useState<boolean>(false);
 	const rootRef = useRef<HTMLDivElement>(null);
 	const placeholderRef = useRef<HTMLDivElement>(null);
-	const optionClassName = selected?.optionClassName ?? '';
 
 	useOutsideClickClose({
-		isOpen,
+		isMenuOpen,
 		rootRef,
 		onClose,
 		onChange: setIsOpen,
@@ -43,55 +41,45 @@ export const Select = (props: SelectProps) => {
 		setIsOpen(false);
 		onChange?.(option);
 	};
-	const handlePlaceHolderClick: MouseEventHandler<HTMLDivElement> = () => {
-		setIsOpen((isOpen) => !isOpen);
+
+	const handlePlaceholderClick: MouseEventHandler<HTMLDivElement> = () => {
+		setIsOpen((prev) => !prev);
 	};
 
 	return (
 		<div className={styles.container}>
 			{title && (
-				<>
-					<Text size={12} weight={800} uppercase>
-						{title}
-					</Text>
-				</>
+				<Text size={12} weight={800} uppercase>
+					{title}
+				</Text>
 			)}
 			<div
 				className={styles.selectWrapper}
 				ref={rootRef}
-				data-is-active={isOpen}
-				data-testid='selectWrapper'>
-				<img src={arrowDown} alt='иконка стрелочки' className={styles.arrow} />
+				data-is-active={isMenuOpen}
+				data-testid="selectWrapper">
+				<img
+					src={arrowDown}
+					alt="иконка стрелочки"
+					className={clsx(styles.arrow, { [styles.arrow_open]: isMenuOpen })}
+				/>
 				<div
-					className={clsx(
-						styles.placeholder,
-						(styles as Record<string, string>)[optionClassName]
-					)}
-					data-status={status}
+					className={clsx(styles.placeholder, styles[selected?.optionClassName || ''])}
 					data-selected={!!selected?.value}
-					onClick={handlePlaceHolderClick}
-					role='button'
+					onClick={handlePlaceholderClick}
+					role="button"
 					tabIndex={0}
 					ref={placeholderRef}>
-					<Text
-						family={
-							isFontFamilyClass(selected?.className)
-								? selected?.className
-								: undefined
-						}>
+					<Text family={isFontFamilyClass(selected?.className) ? selected?.className : undefined}>
 						{selected?.title || placeholder}
 					</Text>
 				</div>
-				{isOpen && (
-					<ul className={styles.select} data-testid='selectDropdown'>
+				{isMenuOpen && (
+					<ul className={styles.select} data-testid="selectDropdown">
 						{options
 							.filter((option) => selected?.value !== option.value)
 							.map((option) => (
-								<Option
-									key={option.value}
-									option={option}
-									onClick={() => handleOptionClick(option)}
-								/>
+								<Option key={option.value} option={option} onClick={() => handleOptionClick(option)} />
 							))}
 					</ul>
 				)}

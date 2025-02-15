@@ -1,32 +1,44 @@
-.container {
-	position: fixed;
-	left: 0;
-	width: 616px;
-	height: 100%;
-	overflow: scroll;
-	transform: translate(-616px);
-	transition: transform 0.5s ease;
-}
-
-.container_open {
-	transform: translate(0);
+.bottomContainer {
+	justify-content: space-between;
+	display: flex;
+	margin-top: auto;
 }
 
 .form {
+	width: 100%;
+	height: auto;
+	padding: 50px;
 	display: flex;
-	flex-shrink: 0;
+	gap: 50px;
 	flex-direction: column;
 	box-sizing: border-box;
-	width: 616px;
-	height: auto;
-	min-height: 100%;
-	padding: 50px 31px;
 	background-color: #ffffff;
 	border-right: 1px solid #000000;
 }
 
-.bottomContainer {
-	display: flex;
-	justify-content: space-between;
-	margin-top: auto;
+.arrow {
+	height: 48px;
+	width: 48px;
+	transition: transform 0.5s ease;
+}
+
+.container {
+	left: 0;
+	width: 616px;
+	height: 100%;
+	position: fixed;
+	overflow: scroll;
+	background-color: #ffffff;
+	transform: translateX(-616px);
+	transition: transform 0.5s ease;
+}
+
+.closeButton {
+	position: absolute;
+	cursor: pointer;
+}
+
+.container_open {
+	transform: translateX(0);
+	cursor: pointer;
 }

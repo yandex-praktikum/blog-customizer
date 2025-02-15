@@ -1,3 +1,4 @@
+// Декларации для SVG-файлов с React-компонентами
 declare module '*.svg' {
 	import React = require('react');
 	export const ReactComponent: React.FunctionComponent<
@@ -7,23 +8,16 @@ declare module '*.svg' {
 	export default src;
 }
 
+// Декларации для изображений
 declare module '*.png';
-
 declare module '*.jpg';
 
+// Декларации для JSON-файлов
 declare module '*.json';
 
-declare module '*.module.css' {
-	const classes: { [key: string]: string };
-	export default classes;
-}
+// Декларации для CSS-модулей
+declare module '*.module.css';
 
-declare module '*.module.scss' {
-	const classes: { [key: string]: string };
-	export default classes;
-}
-
-declare module '*.module.sass' {
-	const classes: { [key: string]: string };
-	export default classes;
-}
+// Декларации для SCSS/SASS-модулей
+declare module '*.module.scss';
+declare module '*.module.sass';
