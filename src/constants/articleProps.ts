@@ -177,3 +177,8 @@ export const defaultArticleState = {
 };
 
 export type ArticleStateType = typeof defaultArticleState;
+
+export interface IPropsSettings {
+	articleState: ArticleStateType;
+	onChange: (state: ArticleStateType) => void;
+}
