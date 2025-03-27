@@ -1,0 +1,12 @@
+.main {
+	position: relative;
+	min-height: 100vh;
+	background-color: var(--bg-color);
+	color: var(--font-color);
+	font-family: var(--font-family);
+	font-size: var(--font-size);
+	transition: 
+	background-color 0.3s ease,
+	color 0.3s ease,
+	font-family 0.3s ease;
+  }
