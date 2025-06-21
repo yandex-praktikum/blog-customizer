@@ -20,3 +20,5 @@ dist
 .yarn
 
 storybook-static
+
+.DS_Store
