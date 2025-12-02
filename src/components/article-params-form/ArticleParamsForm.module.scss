@@ -8,7 +8,7 @@
 	transition: transform 0.5s ease;
 }
 
-.container_open {
+.containerOpen {
 	transform: translate(0);
 }
 
@@ -23,6 +23,7 @@
 	padding: 50px 31px;
 	background-color: #ffffff;
 	border-right: 1px solid #000000;
+	gap: 50px;
 }
 
 .bottomContainer {
