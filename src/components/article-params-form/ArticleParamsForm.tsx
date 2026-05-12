@@ -26,7 +26,7 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 	const [open, setOpen] = useState(false);
 	const [formState, setFormState] = useState(defaultArticleState);
 
-	const refElement = useRef<HTMLDivElement>(null);
+	const refElement = useRef<HTMLElement>(null);
 
 	const openButton = () => {
 		setOpen(open === true ? false : true);
@@ -38,24 +38,13 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 		onChange: setOpen,
 	});
 
-	const handleFontChange = (option: OptionType) => {
-		setFormState({ ...formState, fontFamilyOption: option });
-	};
-
-	const handleFontSizeChange = (option: OptionType) => {
-		setFormState({ ...formState, fontSizeOption: option });
-	};
-
-	const handleFontColorChange = (option: OptionType) => {
-		setFormState({ ...formState, fontColor: option });
-	};
-
-	const handleBgColorChange = (option: OptionType) => {
-		setFormState({ ...formState, backgroundColor: option });
-	};
-
-	const handletWidthChange = (option: OptionType) => {
-		setFormState({ ...formState, contentWidth: option });
+	const updateFormField = (field: keyof ArticleStateType) => {
+		return (value: OptionType) => {
+			setFormState((prev) => ({
+				...prev,
+				[field]: value,
+			}));
+		};
 	};
 
 	const applyButton = () => {
@@ -67,7 +56,7 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 	const deleteButton = () => {
 		setFormState(defaultArticleState);
 		if (onApply) {
-			onApply(formState);
+			onApply(defaultArticleState);
 		}
 	};
 
@@ -85,21 +74,21 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 							title='Шрифт'
 							options={fontFamilyOptions}
 							selected={formState.fontFamilyOption}
-							onChange={handleFontChange}
+							onChange={updateFormField('fontFamilyOption')}
 						/>
 						<RadioGroup
 							name='fontSize'
 							title='Размер шрифта'
 							options={fontSizeOptions}
 							selected={formState.fontSizeOption}
-							onChange={handleFontSizeChange}
+							onChange={updateFormField('fontSizeOption')}
 						/>
 
 						<Select
 							title='Цвет текста'
 							options={fontColors}
 							selected={formState.fontColor}
-							onChange={handleFontColorChange}
+							onChange={updateFormField('fontColor')}
 						/>
 
 						<Separator />
@@ -108,14 +97,14 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 							title='Цвет фона'
 							options={backgroundColors}
 							selected={formState.backgroundColor}
-							onChange={handleBgColorChange}
+							onChange={updateFormField('backgroundColor')}
 						/>
 
 						<Select
 							title='ширина контента'
 							options={contentWidthArr}
 							selected={formState.contentWidth}
-							onChange={handletWidthChange}
+							onChange={updateFormField('contentWidth')}
 						/>
 
 						<div className={styles.bottomContainer}>
