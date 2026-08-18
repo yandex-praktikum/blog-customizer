@@ -1,22 +1,32 @@
-# Dependency directories
-node_modules/
-.idea
-.vscode
-
 # Logs
 logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 lerna-debug.log*
 
-# dotenv environment variables file
-.env
-.env.test
-
-build
+node_modules
 dist
-.yarn
-
+dist-ssr
+*.local
 storybook-static
+*module.css.d.ts
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+playwright-report
+test-results
+*storybook.log
+
+**/*.scss.d.ts

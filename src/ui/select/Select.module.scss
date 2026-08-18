@@ -26,7 +26,7 @@
 	height: 50px;
 	padding: 15px 17px;
 	background: rgb(255 255 255);
-	outline: 1px solid #000000;
+	outline: 1px solid #000;
 	cursor: pointer;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .selectWrapper[data-is-active='true'] .placeholder {
-	outline: 3px solid #000000;
+	outline: 3px solid #000;
 }
 
 .selectWrapper:not([data-is-active='true'])
@@ -59,7 +59,7 @@
 	list-style: none;
 	background-color: rgb(255 255 255 / 100%);
 	border-top: none;
-	outline: 3px solid #000000;
+	outline: 3px solid #000;
 }
 
 .option {
@@ -90,7 +90,7 @@
 
 .option-black::before {
 	@include option-color-before;
-	background-color: #000000;
+	background-color: #000;
 }
 
 @mixin option-color-after {
@@ -104,19 +104,19 @@
 
 .option-black[data-selected='true']::after {
 	@include option-color-after;
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
 .option-white::before {
 	@include option-color-before;
 	box-sizing: border-box;
-	background-color: #ffffff;
-	border: 1px solid #000000;
+	background-color: #fff;
+	border: 1px solid #000;
 }
 
 .option-white[data-selected='true']::after {
 	@include option-color-after;
-	background-color: #000000;
+	background-color: #000;
 }
 
 .option-gray::before {
@@ -126,7 +126,7 @@
 
 .option-gray[data-selected='true']::after {
 	@include option-color-after;
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
 .option-pink::before {
@@ -136,7 +136,7 @@
 
 .option-pink[data-selected='true']::after {
 	@include option-color-after;
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
 .option-fuchsia::before {
@@ -146,7 +146,7 @@
 
 .option-fuchsia[data-selected='true']::after {
 	@include option-color-after;
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
 .option-yellow::before {
@@ -156,7 +156,7 @@
 
 .option-yellow[data-selected='true']::after {
 	@include option-color-after;
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
 .option-green::before {
@@ -166,7 +166,7 @@
 
 .option-green[data-selected='true']::after {
 	@include option-color-after;
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
 .option-blue::before {
@@ -176,7 +176,7 @@
 
 .option-blue[data-selected='true']::after {
 	@include option-color-after;
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
 .option-purple::before {
@@ -186,7 +186,7 @@
 
 .option-purple[data-selected='true']::after {
 	@include option-color-after;
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
 @mixin option-width-before {

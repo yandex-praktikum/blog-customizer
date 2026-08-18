@@ -1,30 +1,32 @@
 import { useEffect, useRef } from 'react';
-import { OptionType } from 'src/constants/articleProps';
+
+import type { OptionType } from 'src/constants/articleProps';
 
 type UseEnterSubmit = {
-	onChange?: (option: OptionType) => void;
-	option: OptionType;
+  onChange?: (option: OptionType) => void;
+  option: OptionType;
 };
 
-export const useEnterSubmit = ({ onChange, option }: UseEnterSubmit) => {
-	const optionRef = useRef<HTMLDivElement>(null);
+export const useEnterSubmit = ({ onChange, option }: UseEnterSubmit): void => {
+  const optionRef = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
-		const optionHtml = optionRef.current;
+  useEffect(() => {
+    const optionHtml = optionRef.current;
 
-		if (!optionHtml) return;
+    if (!optionHtml) return;
 
-		const handleEnterKeyDown = (event: KeyboardEvent) => {
-			if (document.activeElement === optionHtml && event.key === 'Enter') {
-				onChange?.(option);
-			}
-		};
+    const handleEnterKeyDown = (event: KeyboardEvent): void => {
+      if (document.activeElement === optionHtml && event.key === 'Enter') {
+        onChange?.(option);
+      }
+    };
 
-		optionHtml.addEventListener('keydown', handleEnterKeyDown);
+    optionHtml.addEventListener('keydown', handleEnterKeyDown);
 
-		// не забываем удалять листенеры, при размонтировании компонента
-		return () => {
-			optionHtml.removeEventListener('keydown', handleEnterKeyDown);
-		};
-	}, [onChange, option]);
+    // не забываем удалять листенеры, при размонтировании компонента
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    return () => {
+      optionHtml.removeEventListener('keydown', handleEnterKeyDown);
+    };
+  }, [onChange, option]);
 };
