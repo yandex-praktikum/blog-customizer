@@ -10,12 +10,14 @@
 
 .container_open {
 	transform: translate(0);
+	position: absolute;
 }
 
 .form {
 	display: flex;
 	flex-shrink: 0;
 	flex-direction: column;
+	row-gap: 50px;
 	box-sizing: border-box;
 	width: 616px;
 	height: auto;
