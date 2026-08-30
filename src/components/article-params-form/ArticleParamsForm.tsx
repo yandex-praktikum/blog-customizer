@@ -10,18 +10,23 @@ import {
 	fontColors,
 	fontFamilyOptions,
 	fontSizeOptions,
-	TAppState,
 	OptionType,
 	ArticleStateType,
-	defaultArticleState,
 } from 'src/constants/articleProps';
 import { RadioGroup } from 'src/ui/radio-group';
 import { Separator } from 'src/ui/separator';
 import { Text } from 'src/ui/text';
 
-export const ArticleParamsForm = (props: TAppState) => {
-	const [isOpen, setIsOpen] = useState(false);
-	const [state, setState] = useState(props.currentStyle);
+type ArticleParamsProps = {
+	state: ArticleStateType;
+	isOpen: boolean;
+	setIsOpen: () => void;
+	onApply: (e: ArticleStateType) => void;
+	onReset?: () => void;
+};
+
+export const ArticleParamsForm = (props: ArticleParamsProps) => {
+	const [state, setState] = useState(props.state);
 
 	function select(
 		title: string,
@@ -48,12 +53,13 @@ export const ArticleParamsForm = (props: TAppState) => {
 	return (
 		<>
 			<ArrowButton
-				isOpen={isOpen}
+				isOpen={props.isOpen}
 				onClick={() => {
-					setIsOpen((prev) => !prev);
+					props.setIsOpen();
 				}}
 			/>
-			<aside className={isOpen ? styles.container_open : styles.container}>
+			<aside
+				className={props.isOpen ? styles.container_open : styles.container}>
 				<form
 					className={styles.form}
 					onSubmit={(e) => {
@@ -85,17 +91,14 @@ export const ArticleParamsForm = (props: TAppState) => {
 							title='Сбросить'
 							htmlType='reset'
 							type='clear'
-							onClick={() => {
-								props.setState(defaultArticleState);
-							}}
+							onClick={props.onReset}
 						/>
 						<Button
 							title='Применить'
 							htmlType='submit'
 							type='apply'
 							onClick={() => {
-								props.setState(state);
-								setIsOpen(false);
+								props.onApply(state);
 							}}
 						/>
 					</div>

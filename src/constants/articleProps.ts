@@ -180,5 +180,4 @@ export type ArticleStateType = typeof defaultArticleState;
 
 export type TAppState = {
 	currentStyle: ArticleStateType;
-	setState: (state: ArticleStateType) => void;
 };
