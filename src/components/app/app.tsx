@@ -17,14 +17,16 @@ export const App = () => {
 	const paramsRef = useRef<HTMLElement>(null);
 
 	useEffect(() => {
-		document.addEventListener('mousedown', (e) => {
+		const handleMouseDown = (e: MouseEvent) => {
 			if (
 				!(paramsRef.current && paramsRef.current.contains(e.target as Node))
 			) {
 				setIsOpen(false);
-				console.log('+');
 			}
-		});
+		};
+		document.addEventListener('mousedown', handleMouseDown);
+
+		return () => document.removeEventListener('mousedown', handleMouseDown);
 	}, []);
 
 	return (
