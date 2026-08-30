@@ -1,4 +1,4 @@
-import { CSSProperties, useState } from 'react';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 
 import { Article } from '../article/Article';
@@ -14,10 +14,21 @@ export const App = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [appState, setAppState] =
 		useState<ArticleStateType>(defaultArticleState);
+	const paramsRef = useRef<HTMLElement>(null);
+
+	useEffect(() => {
+		document.addEventListener('mousedown', (e) => {
+			if (
+				!(paramsRef.current && paramsRef.current.contains(e.target as Node))
+			) {
+				setIsOpen(false);
+				console.log('+');
+			}
+		});
+	}, []);
 
 	return (
 		<main
-			onClick={() => {}}
 			className={clsx(styles.main)}
 			style={
 				{
@@ -29,11 +40,11 @@ export const App = () => {
 				} as CSSProperties
 			}>
 			<ArticleParamsForm
+				formRef={paramsRef}
 				state={appState}
 				isOpen={isOpen}
 				setIsOpen={() => setIsOpen((prev) => !prev)}
-				onApply={setAppState}
-				onReset={() => setAppState(defaultArticleState)}
+				applyStyle={setAppState}
 			/>
 			<Article />
 		</main>

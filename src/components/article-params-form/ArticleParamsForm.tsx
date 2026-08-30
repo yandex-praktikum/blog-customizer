@@ -12,17 +12,18 @@ import {
 	fontSizeOptions,
 	OptionType,
 	ArticleStateType,
+	defaultArticleState,
 } from 'src/constants/articleProps';
 import { RadioGroup } from 'src/ui/radio-group';
 import { Separator } from 'src/ui/separator';
 import { Text } from 'src/ui/text';
 
 type ArticleParamsProps = {
+	formRef?: React.RefObject<HTMLElement> | React.RefCallback<HTMLElement>;
 	state: ArticleStateType;
 	isOpen: boolean;
 	setIsOpen: () => void;
-	onApply: (e: ArticleStateType) => void;
-	onReset?: () => void;
+	applyStyle: (e: ArticleStateType) => void;
 };
 
 export const ArticleParamsForm = (props: ArticleParamsProps) => {
@@ -59,6 +60,7 @@ export const ArticleParamsForm = (props: ArticleParamsProps) => {
 				}}
 			/>
 			<aside
+				ref={props.formRef}
 				className={props.isOpen ? styles.container_open : styles.container}>
 				<form
 					className={styles.form}
@@ -91,14 +93,17 @@ export const ArticleParamsForm = (props: ArticleParamsProps) => {
 							title='Сбросить'
 							htmlType='reset'
 							type='clear'
-							onClick={props.onReset}
+							onClick={() => {
+								setState(defaultArticleState);
+								props.applyStyle(defaultArticleState);
+							}}
 						/>
 						<Button
 							title='Применить'
 							htmlType='submit'
 							type='apply'
 							onClick={() => {
-								props.onApply(state);
+								props.applyStyle(state);
 							}}
 						/>
 					</div>
