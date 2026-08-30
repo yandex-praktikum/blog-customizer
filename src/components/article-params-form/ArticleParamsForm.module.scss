@@ -9,6 +9,7 @@
 }
 
 .container_open {
+	position: absolute;
 	transform: translate(0);
 }
 
@@ -16,6 +17,7 @@
 	display: flex;
 	flex-shrink: 0;
 	flex-direction: column;
+	row-gap: 50px;
 	box-sizing: border-box;
 	width: 616px;
 	height: auto;
