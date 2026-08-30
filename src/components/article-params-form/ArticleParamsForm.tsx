@@ -35,10 +35,10 @@ export const ArticleParamsForm = (props: ArticleParamsProps) => {
 		optionList: OptionType[]
 	) {
 		const onchange = (e: OptionType) => {
-			setState({
-				...state,
+			setState((prevState) => ({
+				...prevState,
 				[optionName]: e,
-			});
+			}));
 		};
 		return (
 			<Select
@@ -75,12 +75,11 @@ export const ArticleParamsForm = (props: ArticleParamsProps) => {
 						options={fontSizeOptions}
 						name='fontSize'
 						selected={state.fontSizeOption}
-						key={0}
 						onChange={(e) => {
-							setState({
-								...state,
+							setState((prevState) => ({
+								...prevState,
 								fontSizeOption: e,
-							});
+							}));
 						}}
 						title='размер шрифта'
 					/>
